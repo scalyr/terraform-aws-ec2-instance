@@ -212,6 +212,36 @@ Available targets:
 | aws | >= 2.0 |
 | null | >= 2.0 |
 
+## Modules
+
+| Name | Source | Version |
+|------|--------|---------|
+| default_sg | cloudposse/security-group/aws | 0.1.3 |
+| this | cloudposse/label/null | 0.24.1 |
+
+## Resources
+
+| Name |
+|------|
+| [aws_ami](https://registry.terraform.io/providers/hashicorp/aws/2.0/docs/data-sources/ami) |
+| [aws_caller_identity](https://registry.terraform.io/providers/hashicorp/aws/2.0/docs/data-sources/caller_identity) |
+| [aws_cloudwatch_metric_alarm](https://registry.terraform.io/providers/hashicorp/aws/2.0/docs/resources/cloudwatch_metric_alarm) |
+| [aws_ebs_volume](https://registry.terraform.io/providers/hashicorp/aws/2.0/docs/resources/ebs_volume) |
+| [aws_eip](https://registry.terraform.io/providers/hashicorp/aws/2.0/docs/resources/eip) |
+| [aws_iam_instance_profile](https://registry.terraform.io/providers/hashicorp/aws/2.0/docs/resources/iam_instance_profile) |
+| [aws_iam_instance_profile](https://registry.terraform.io/providers/hashicorp/aws/2.0/docs/data-sources/iam_instance_profile) |
+| [aws_iam_policy_document](https://registry.terraform.io/providers/hashicorp/aws/2.0/docs/data-sources/iam_policy_document) |
+| [aws_iam_role](https://registry.terraform.io/providers/hashicorp/aws/2.0/docs/resources/iam_role) |
+| [aws_instance](https://registry.terraform.io/providers/hashicorp/aws/2.0/docs/resources/instance) |
+| [aws_network_interface](https://registry.terraform.io/providers/hashicorp/aws/2.0/docs/resources/network_interface) |
+| [aws_network_interface_attachment](https://registry.terraform.io/providers/hashicorp/aws/2.0/docs/resources/network_interface_attachment) |
+| [aws_partition](https://registry.terraform.io/providers/hashicorp/aws/2.0/docs/data-sources/partition) |
+| [aws_region](https://registry.terraform.io/providers/hashicorp/aws/2.0/docs/data-sources/region) |
+| [aws_subnet](https://registry.terraform.io/providers/hashicorp/aws/2.0/docs/data-sources/subnet) |
+| [aws_volume_attachment](https://registry.terraform.io/providers/hashicorp/aws/2.0/docs/resources/volume_attachment) |
+| [null_data_source](https://registry.terraform.io/providers/hashicorp/null/2.0/docs/data-sources/data_source) |
+| [null_resource](https://registry.terraform.io/providers/hashicorp/null/2.0/docs/resources/resource) |
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -298,7 +328,6 @@ Available targets:
 | role | Name of AWS IAM Role associated with the instance |
 | security\_group\_ids | IDs on the AWS Security Groups associated with the instance |
 | ssh\_key\_pair | Name of the SSH key pair provisioned on the instance |
-
 <!-- markdownlint-restore -->
 
 

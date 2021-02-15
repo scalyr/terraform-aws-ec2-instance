@@ -1,6 +1,6 @@
 module "default_sg" {
   source  = "cloudposse/security-group/aws"
-  version = "0.1.2"
+  version = "0.1.3"
   rules   = var.security_group_rules
   vpc_id  = var.vpc_id
 

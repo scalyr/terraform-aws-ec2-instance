@@ -273,7 +273,7 @@ variable "root_block_device_encrypted" {
 
 variable "metadata_http_tokens_required" {
   type        = bool
-  default     = true
+  default     = false
   description = "Whether or not the metadata service requires session tokens, also referred to as Instance Metadata Service Version 2."
 }
 

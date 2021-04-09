@@ -142,6 +142,10 @@ resource "aws_instance" "default" {
   }
 
   tags = module.this.tags
+
+  lifecycle {
+    ignore_changes = [ instance_type ]
+  }
 }
 
 resource "aws_eip" "default" {

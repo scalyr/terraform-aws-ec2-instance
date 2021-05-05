@@ -144,7 +144,7 @@ resource "aws_instance" "default" {
   tags = module.this.tags
 
   lifecycle {
-    ignore_changes = [ instance_type, user_data, user_data_base64 ]
+    ignore_changes = [ instance_type, user_data, user_data_base64, ami]
   }
 }
 

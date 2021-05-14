@@ -135,8 +135,8 @@ variable "ipv6_addresses" {
 
 variable "root_volume_type" {
   type        = string
-  description = "Type of root volume. Can be standard, gp2 or io1"
-  default     = "gp2"
+  description = "Type of root volume. Can be standard, gp3, gp2 or io1"
+  default     = "gp3"
 }
 
 variable "root_volume_size" {
@@ -159,8 +159,8 @@ variable "ebs_device_name" {
 
 variable "ebs_volume_type" {
   type        = string
-  description = "The type of EBS volume. Can be standard, gp2 or io1"
-  default     = "gp2"
+  description = "The type of EBS volume. Can be standard, gp3 or io1"
+  default     = "gp3"
 }
 
 variable "ebs_volume_size" {

@@ -11,8 +11,8 @@ locals {
   ami                    = var.ami != "" ? var.ami : join("", data.aws_ami.default.*.image_id)
   ami_owner              = var.ami != "" ? var.ami_owner : join("", data.aws_ami.default.*.owner_id)
   root_volume_type       = var.root_volume_type != "" ? var.root_volume_type : data.aws_ami.info.root_device_type
-  eip_public_dns = "ec2-${replace(join("", aws_eip.default.*.public_ip), ".", "-")}.${local.region == "us-east-1" ? "compute-1" : "${local.region}.compute"}.amazonaws.com"
-  public_dns             = var.associate_public_ip_address && var.assign_eip_address && module.this.enabled ?local.eip_public_dns : join("", aws_instance.default.*.public_dns)
+  eip_public_dns         = "ec2-${replace(join("", aws_eip.default.*.public_ip), ".", "-")}.${local.region == "us-east-1" ? "compute-1" : "${local.region}.compute"}.amazonaws.com"
+  public_dns             = var.associate_public_ip_address && var.assign_eip_address && module.this.enabled ? local.eip_public_dns : join("", aws_instance.default.*.public_dns)
 }
 
 data "aws_caller_identity" "default" {
@@ -142,10 +142,13 @@ resource "aws_instance" "default" {
     http_tokens                 = var.metadata_http_tokens_required ? "required" : "optional"
   }
 
-  tags = module.this.tags
+  tags        = module.this.tags
+  volume_tags = {}
+
+  instance_initiated_shutdown_behavior = "stop"
 
   lifecycle {
-    ignore_changes = [ instance_type, user_data, user_data_base64, ami]
+    ignore_changes = [instance_type, user_data, user_data_base64, ami]
   }
 }
 

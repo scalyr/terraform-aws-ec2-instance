@@ -133,6 +133,7 @@ resource "aws_instance" "default" {
     iops                  = local.root_iops
     delete_on_termination = var.delete_on_termination
     encrypted             = var.root_block_device_encrypted
+    tags                  = module.this.tags
   }
 
   metadata_options {

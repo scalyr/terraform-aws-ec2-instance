@@ -5,7 +5,7 @@ locals {
   instance_profile       = local.instance_profile_count == 0 ? var.instance_profile : join("", aws_iam_instance_profile.default.*.name)
   security_group_enabled = module.this.enabled && var.create_default_security_group ? true : false
   region                 = var.region != "" ? var.region : data.aws_region.default.name
-  root_iops              = var.iops != "" ?  var.root_iops : "0"
+  root_iops              = var.root_iops != "" ? var.root_iops : "0"
   ebs_iops               = var.ebs_iops != "" ? var.ebs_iops : "0"
   availability_zone      = var.availability_zone != "" ? var.availability_zone : data.aws_subnet.default.availability_zone
   ami                    = var.ami != "" ? var.ami : join("", data.aws_ami.default.*.image_id)
@@ -133,7 +133,6 @@ resource "aws_instance" "default" {
     iops                  = local.root_iops
     delete_on_termination = var.delete_on_termination
     encrypted             = var.root_block_device_encrypted
-    tags                  = module.this.tags
   }
 
   metadata_options {
@@ -143,7 +142,7 @@ resource "aws_instance" "default" {
   }
 
   tags        = module.this.tags
-  volume_tags = {}
+  volume_tags = module.this.tags
 
   instance_initiated_shutdown_behavior = "stop"
 

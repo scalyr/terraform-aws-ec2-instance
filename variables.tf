@@ -147,8 +147,8 @@ variable "root_volume_size" {
 
 variable "root_iops" {
   type        = number
-  description = "Amount of provisioned IOPS. This must be set if root_volume_type is set to `io1`"
-  default     = 0
+  description = "Amount of provisioned IOPS."
+  default     = 3000
 }
 
 variable "ebs_device_name" {
@@ -177,7 +177,7 @@ variable "ebs_volume_encrypted" {
 
 variable "ebs_iops" {
   type        = number
-  description = "Amount of provisioned IOPS. This must be set with a volume_type of io1"
+  description = "Amount of provisioned IOPS."
   default     = 0
 }
 
